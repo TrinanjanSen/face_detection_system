@@ -1,10 +1,23 @@
-# Face_Attendance_System
-A baisc Attendance updation system using face scan through python-inbuilt libraries
+#Face Recognition Attendance System
+This project implements an automated attendance system using face recognition with Python. It captures face images, recognizes faces in real-time via a webcam, and logs attendance to an Excel sheet. The system has both a command-line interface (CLI) and a graphical user interface (GUI) built with Tkinter.
+
+#Features
+1.Capture New Face Images via webcam.
+
+2.Real-time Face Recognition with face_recognition library.
+
+3.Excel Attendance Logging (attendance.xlsx).
+
+4.Intuitive GUI for ease of use.
+
+5.Timeout Support for auto-closing attendance after a set time(adjustable , default : 120 seconds).
+
+6. Exit option ("q") during attendance marking.
 
 # REQUIREMENTS 
 
 
-Working steps: -
+# Working steps: -
 
 1.Capture Face
 enter user_name -> click on capture face -> enter SPACE to stop
