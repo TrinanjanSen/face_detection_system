@@ -16,19 +16,26 @@ This project implements an automated attendance system using face recognition wi
 
 6. Exit option ("q") during attendance marking.
 
-# REQUIREMENTS 
-
 ## 📁 Project Structure
 
 📂 face-recognition-attendance
+
 ├── 📜 face_attendance_system.py
+
 ├── 📜 gui.py
+
 ├── 📜 README.md
+
 ├── 📁 images/ # Stored face images
+
 ├── 📁 icons/ # App button icons
+
 │ ├── capture.png
+
 │ ├── attendance.png
+
 │ └── exit.png
+
 └── 📜 attendance.xlsx # Attendance log
 
 
