@@ -1,6 +1,9 @@
 # Face_Attendance_System
 A baisc Attendance updation system using face scan through python-inbuilt libraries
 
+# REQUIREMENTS 
+
+
 Working steps: -
 
 1.Capture Face
