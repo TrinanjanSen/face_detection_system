@@ -4,9 +4,9 @@ import numpy as np
 import os
 from datetime import datetime
 from openpyxl import Workbook, load_workbook
+import time
 
-def capture_face_image():
-    person_name = input("Enter the name of the person to capture: ")
+def capture_face_image(person_name):
     folder = 'images'
     if not os.path.exists(folder):
         os.makedirs(folder)
@@ -29,10 +29,10 @@ def capture_face_image():
         cv2.imshow("Capture Face", frame)
         key = cv2.waitKey(1)
 
-        if key % 256 == 27:  
+        if key % 256 == 27:  # ESC
             print("Capture cancelled.")
             break
-        elif key % 256 == 32:  
+        elif key % 256 == 32:  # SPACE
             if face_locations:
                 cv2.imwrite(file_path, frame)
                 print(f"Image saved as {file_path}")
@@ -44,8 +44,7 @@ def capture_face_image():
     cv2.destroyAllWindows()
 
 
-
-def load_known_faces(known_faces_dir):
+def load_known_faces(known_faces_dir='images'):
     known_encodings = []
     known_names = []
     for filename in os.listdir(known_faces_dir):
@@ -74,7 +73,6 @@ def mark_attendance_excel(name):
     wb = load_workbook(file_name)
     ws = wb.active
 
-    
     today = now.strftime('%Y-%m-%d')
     already_marked = False
     for row in ws.iter_rows(values_only=True):
@@ -88,15 +86,16 @@ def mark_attendance_excel(name):
         print(f"Attendance marked for {name}")
 
 
-def recognize_and_mark_attendance():
-    known_encodings, known_names = load_known_faces('images')
+def recognize_and_mark_attendance(timeout=120):
+    known_encodings, known_names = load_known_faces()
     if not known_encodings:
         print("No known faces found. Please add images first.")
         return
 
     cap = cv2.VideoCapture(0)
-    print("Starting Face Recognition Attendance System... (Press Q to Quit)")
+    print("Starting Face Recognition Attendance System...")
 
+    start_time = time.time()
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -120,18 +119,23 @@ def recognize_and_mark_attendance():
 
             top, right, bottom, left = [v * 4 for v in face_location]
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
-            cv2.putText(frame, name, (left, top-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
         cv2.imshow('Attendance System', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
+            print("User pressed 'q'. Exiting...")
+            break
+
+        if time.time() - start_time > timeout:
+            print(f"Timeout reached ({timeout}s), closing...")
             break
 
     cap.release()
     cv2.destroyAllWindows()
 
 
-if __name__ == "__main__":
+def cli_main():
     while True:
         print("\n=== Face Recognition Attendance System ===")
         print("1. Capture New Face Image")
@@ -140,7 +144,8 @@ if __name__ == "__main__":
         choice = input("Enter your choice (1/2/3): ")
 
         if choice == '1':
-            capture_face_image()
+            person_name = input("Enter the name of the person to capture: ")
+            capture_face_image(person_name)
         elif choice == '2':
             recognize_and_mark_attendance()
         elif choice == '3':
@@ -148,3 +153,5 @@ if __name__ == "__main__":
             break
         else:
             print("Invalid choice. Try again.")
+
+
