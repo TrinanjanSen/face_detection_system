@@ -18,18 +18,19 @@ This project implements an automated attendance system using face recognition wi
 
 # REQUIREMENTS 
 
-## Project Structure
+## 📁 Project Structure
 
 📂 face-recognition-attendance
 ├── 📜 face_attendance_system.py
 ├── 📜 gui.py
 ├── 📜 README.md
-├── 📁 images/                  # Stored face images
-├── 📁 icons/                   # App button icons
-│   ├── capture.png
-│   ├── attendance.png
-│   └── exit.png
-└── 📜 attendance.xlsx   
+├── 📁 images/ # Stored face images
+├── 📁 icons/ # App button icons
+│ ├── capture.png
+│ ├── attendance.png
+│ └── exit.png
+└── 📜 attendance.xlsx # Attendance log
+
 
 # Working steps: -
 
