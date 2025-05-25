@@ -51,5 +51,44 @@ here the date and time is updated in attendace excel sheet (genreated automatica
 3.exit
 click on exit to close the face attendance system
 
+# USE
+Graphical User Interface (GUI)
+
+python gui.py
+
+Features:
+
+Enter a name and click "Capture Face" to store the face image.
+
+Start Attendance System with one click.
+
+Exit the app.
+
+Attendance
+
+All attendance records are stored in attendance.xlsx.
+
+Images are saved in the images/ folder.
+
+
+Run the CLI application
+
+python face_attendance_system.py
+ 
+Command Line Interface (CLI)
+
+python face_attendance_system.py
+
+Follow the menu:
+
+Capture new face images.
+
+Start attendance system.
+
+Exit.
+
+Press q to stop attendance check during face recognition.
+
+
 
 
