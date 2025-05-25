@@ -5,7 +5,6 @@ import os
 from datetime import datetime
 from openpyxl import Workbook, load_workbook
 
-# Step 1: Capture face image and save to images/
 def capture_face_image():
     person_name = input("Enter the name of the person to capture: ")
     folder = 'images'
@@ -21,7 +20,6 @@ def capture_face_image():
         if not ret:
             break
 
-        # Detect faces in the frame
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         face_locations = face_recognition.face_locations(rgb_frame)
 
@@ -31,10 +29,10 @@ def capture_face_image():
         cv2.imshow("Capture Face", frame)
         key = cv2.waitKey(1)
 
-        if key % 256 == 27:  # ESC pressed
+        if key % 256 == 27:  
             print("Capture cancelled.")
             break
-        elif key % 256 == 32:  # SPACE pressed
+        elif key % 256 == 32:  
             if face_locations:
                 cv2.imwrite(file_path, frame)
                 print(f"Image saved as {file_path}")
@@ -46,7 +44,7 @@ def capture_face_image():
     cv2.destroyAllWindows()
 
 
-# Step 2: Load known faces from images/
+
 def load_known_faces(known_faces_dir):
     known_encodings = []
     known_names = []
@@ -61,7 +59,7 @@ def load_known_faces(known_faces_dir):
                 print(f"Warning: No face found in {filename}")
     return known_encodings, known_names
 
-# Step 3: Mark attendance to Excel
+
 def mark_attendance_excel(name):
     file_name = 'attendance.xlsx'
     now = datetime.now()
@@ -76,7 +74,7 @@ def mark_attendance_excel(name):
     wb = load_workbook(file_name)
     ws = wb.active
 
-    # Check if already marked today
+    
     today = now.strftime('%Y-%m-%d')
     already_marked = False
     for row in ws.iter_rows(values_only=True):
@@ -89,7 +87,7 @@ def mark_attendance_excel(name):
         wb.save(file_name)
         print(f"Attendance marked for {name}")
 
-# Step 4: Live face recognition and attendance
+
 def recognize_and_mark_attendance():
     known_encodings, known_names = load_known_faces('images')
     if not known_encodings:
@@ -132,7 +130,7 @@ def recognize_and_mark_attendance():
     cap.release()
     cv2.destroyAllWindows()
 
-# Main program
+
 if __name__ == "__main__":
     while True:
         print("\n=== Face Recognition Attendance System ===")
