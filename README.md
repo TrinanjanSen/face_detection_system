@@ -2,7 +2,8 @@
 
 This project implements an automated attendance system using face recognition with Python. It captures face images, recognizes faces in real-time via a webcam, and logs attendance to an Excel sheet. The system has both a command-line interface (CLI) and a graphical user interface (GUI) built with Tkinter.
 
-#Features
+# Features
+
 1.Capture New Face Images via webcam.
 
 2.Real-time Face Recognition with face_recognition library.
