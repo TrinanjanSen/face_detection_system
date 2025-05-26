@@ -17,6 +17,15 @@ This project implements an automated attendance system using face recognition wi
 6. Exit option ("q") during attendance marking.
 
 ## 🛠 Requirements
+
+System Requirements
+
+Operating Systems: Windows 10/11, macOS, or Linux (Ubuntu 20.04 or later recommended).
+
+Hardware: A webcam (built-in or external) for capturing face images and real-time recognition.
+
+Software: Python 3.6 or higher (3.8+ recommended for compatibility with face_recognition).
+
 - Python 3.x
 - Libraries:
   - `opencv-python`
@@ -27,7 +36,15 @@ Install dependencies using:
 
 pip install opencv-python face_recognition numpy openpyxl
 
+## Troubleshooting
+ - Issue: face_recognition fails to install due to dlib dependency.
+ - Solution: Install cmake and a C++ compiler (e.g., Visual Studio Build Tools on Windows, g++ on Linux/macOS). Then run: pip install dlib --verbose followed by pip install face_recognition.
 
+ - Issue: Webcam not detected.
+ - Solution: Ensure your webcam is connected and drivers are installed. Test with another application (e.g., Zoom). If issues persist, check OpenCV compatibility with your webcam using cv2.VideoCapture(0).
+
+ - Issue: attendance.xlsx is locked or not updating.
+ - Solution: Ensure the file is not open in another program (e.g., Excel) while running the application.
 
 
 ## 📸 Usage
