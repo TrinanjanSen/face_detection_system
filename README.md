@@ -42,7 +42,7 @@ pip install opencv-python face_recognition numpy openpyxl
 3. **Run the GUI Application**
    - Open a terminal, navigate to the project directory.
    - Run:
-     python your_gui_script.py
+     python gui_app.py
    - This will launch the GUI window.
 
 4. **Capture Face Images**
@@ -53,7 +53,7 @@ pip install opencv-python face_recognition numpy openpyxl
 5. **Start Attendance**
    - Enter the attendance gap (in minutes) in the field (default is 30).
    - Click the "Start Attendance" button.
-   - The system will recognize faces and mark attendance in 'attendance.xlsx'.
+   - The system will recognize faces and mark attendance in 'attendance.xlsx' (file created automatically).
 
 6. **View Attendance Percentage**
    - Click the "Attendance %" button.
@@ -61,6 +61,11 @@ pip install opencv-python face_recognition numpy openpyxl
 
 7. **Exit Application**
    - Click the "Exit" button or close the window.
+
+attendance.xlsx will be saved in the project root directory.
+
+![image](https://github.com/user-attachments/assets/ddadd013-1e41-43d7-8b4d-f82952c55831)
+
 
 Optional: Command Line Interface (CLI)
 -------------------------------------
