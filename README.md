@@ -16,79 +16,61 @@ This project implements an automated attendance system using face recognition wi
 
 6. Exit option ("q") during attendance marking.
 
-## 📁 Project Structure
+## 🛠 Requirements
+- Python 3.x
+- Libraries:
+  - `opencv-python`
+  - `face_recognition`
+  - `numpy`
+  - `openpyxl`
+Install dependencies using:
 
-📂 face-recognition-attendance
-
-├── 📜 face_attendance_system.py
-
-├── 📜 gui.py
-
-├── 📜 README.md
-
-├── 📁 images/ # Stored face images
-
-├── 📁 icons/ # App button icons
-
-│ ├── capture.png
-
-│ ├── attendance.png
-
-│ └── exit.png
-
-└── 📜 attendance.xlsx # Attendance log
-
-
-# Working steps: -
-
-1.Capture Face
-enter user_name -> click on capture face -> enter SPACE to stop
-
-2.Start Attendance
-attendace start window -> click ok -> once attendance is marked a message will be displayed "Attendance marked for user_name" ->press "q" to exit
-here the date and time is updated in attendace excel sheet (genreated automatically)
-
-3.exit
-click on exit to close the face attendance system
-
-# USE
-Graphical User Interface (GUI)
-
-python gui.py
-
-Features:
-
-Enter a name and click "Capture Face" to store the face image.
-
-Start Attendance System with one click.
-
-Exit the app.
-
-Attendance
-
-All attendance records are stored in attendance.xlsx.
-
-Images are saved in the images/ folder.
-
-
-Run the CLI application
-
-python face_attendance_system.py
- 
-Command Line Interface (CLI)
-
-python face_attendance_system.py
-
-Follow the menu:
-
-Capture new face images.
-
-Start attendance system.
-
-Exit.
-
-Press q to stop attendance check during face recognition.
+pip install opencv-python face_recognition numpy openpyxl
 
 
 
 
+## 📸 Usage
+1. **Clone or Download the Repository**
+- Clone with Git:
+     git clone https://github.com/TrinanjanSen/face_detection_system.git
+- Or download the ZIP and extract.
+
+2. **Add Icons (Optional but Recommended)**
+   - Place icons (e.g., capture.png, attendance.png, exit.png) inside an "icons" folder in the same directory as the GUI script.
+
+3. **Run the GUI Application**
+   - Open a terminal, navigate to the project directory.
+   - Run:
+     python your_gui_script.py
+   - This will launch the GUI window.
+
+4. **Capture Face Images**
+   - Enter a name in the "Enter Name" field.
+   - Click the "Capture Face" button.
+   - The webcam will open; press SPACE to capture images. ESC to cancel.
+
+5. **Start Attendance**
+   - Enter the attendance gap (in minutes) in the field (default is 30).
+   - Click the "Start Attendance" button.
+   - The system will recognize faces and mark attendance in 'attendance.xlsx'.
+
+6. **View Attendance Percentage**
+   - Click the "Attendance %" button.
+   - A pop-up will display the attendance percentage for each person.
+
+7. **Exit Application**
+   - Click the "Exit" button or close the window.
+
+Optional: Command Line Interface (CLI)
+-------------------------------------
+- Run: python face_attendance_system.py
+- Select options from the CLI menu to capture images or start attendance.
+
+License:
+--------
+This project is open-source and free to use for educational purposes.
+
+Contributions:
+--------------
+Feel free to fork this repo and contribute!
